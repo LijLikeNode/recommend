@@ -1,0 +1,208 @@
+body,
+html,
+dl,
+dd,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%
+}
+
+/*继承body设定的字体大小*/
+/* 根据屏幕大小改变文字大小 */
+html {
+  min-height: 100vh;
+}
+
+/*chorme下设置为10px无效,推荐设置为20px,1rem=20px*/
+@media screen and (max-width:768px) {
+  /*手机屏幕*/
+  /* html{font-size: 15px;}  */
+}
+
+body {
+  background:red;
+  font-family: "Droid Sans Fallback",
+    "Heiti SC",
+    "Droid Sans",
+    Helvetica,
+    "Helvetica Neue",
+    sans-self;
+  color: #000;
+  background-color: #F7F7F7;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  visibility: hidden;
+  height: 0;
+  clear: both;
+}
+
+/*除去浮动*/
+a:hover {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 图片自适应 */
+em,
+i {
+  font-style: normal
+}
+
+/*如需默认样式可修改*/
+button,
+input,
+select,
+textarea {
+  vertical-align: middle;
+  outline: none;
+}
+
+/*出去获得焦点下的蓝色边框*/
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #ccc;
+}
+
+/*修改placeholder文字颜色*/
+
+
+
+/* ajax loading */
+
+.popalert {
+  background: rgba(0, 0, 0, .8);
+  text-align: center;
+  width: 14em;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  padding: 2.5em 1em;
+  z-index: 1000;
+  border-radius: .2em;
+  display: none;
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+.popalert.show {
+  display: block;
+}
+
+.popalert.show.notouch {
+  pointer-events: none;
+}
+
+.popalert.fadein {
+  opacity: 1;
+}
+
+.wait {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  display: none;
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+.wait.show {
+  display: block;
+}
+
+.wait.show {
+  opacity: 1;
+}
+
+.wait figure {
+  position: absolute;
+  background: rgba(0, 0, 0, .5);
+  width: 10em;
+  height: 8em;
+  text-align: center;
+  line-height: 8em;
+  left: 50%;
+  top: 50%;
+  margin: -5em 0 0 -5em;
+  border-radius: .2em;
+}
+
+.wait figure img {
+  width: 2.5em;
+  /* animation:wait 8s linear infinite; */
+}
+
+/*这里定义整个应用加载时的动画，进场前这里设置了缩放为0，
+进场过程中缩放变为1，也就是100%，持续时间为500ms，
+时间曲是ease-out，一种先快后慢的变化曲线*/
+
+.appAppear-appear{
+  opacity: 0;
+  transform: scale(.6);
+}
+
+.appAppear-appear.appAppear-appear-active{
+  opacity: 1;
+  transform: scale(1);
+  transition: 300ms ease;
+}
+
+.fade-enter {
+  opacity: 0;
+  transform: scale(0);
+}
+
+
+/*设置进场过程中 透明度为1，防缩为1，放缩的位置为左上角，持续时间为500ms，时间曲是ease-out */
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transform-origin: top left;
+  transition: 800ms ease-out;
+}
+
+/*设置退场前透明度为1，防缩为1*/
+.fade-exit{
+  opacity: 1;
+  transform: scale(1);
+}
+
+/*设置退场过程中 透明度为0，防缩为0，放缩的位置默认是中间，所以不设置也可以，
+持续时间为500ms，时间曲是ease-out */
+.fade-exit.fade-exit-active{
+  opacity:0;
+  transform: scale(0);
+  transition: 800ms ease-out;
+}
